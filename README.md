@@ -1,5 +1,7 @@
 # vue2-form-loading
 
+A VueJS directive can be used with forms in order to disable submit button and make every input readonly after submitting
+
 ## Installation
 
 ```bash
