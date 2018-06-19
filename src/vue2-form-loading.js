@@ -31,7 +31,7 @@ export default {
           }
         }
         // disable all inputs
-        let inputs = form.querySelectorAll("input, select");
+        let inputs = form.querySelectorAll("input, select, textarea");
         inputs.forEach(function(element) {
           if (element.tagName === "SELECT") {
             createHiddenInput(element, form)
