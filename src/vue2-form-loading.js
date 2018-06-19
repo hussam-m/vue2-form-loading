@@ -1,54 +1,54 @@
 export default {
-  install(Vue, options) {
-    Vue.directive("loading", function(form, binding) {
+  install (Vue, options) {
+    Vue.directive('loading', function (form, binding) {
       let button = {
         label:
-          typeof binding.value === "object"
+          typeof binding.value === 'object'
             ? binding.value.html
             : binding.value,
-        className: typeof binding.value === "object" ? binding.value.class : ""
-      };
+        className: typeof binding.value === 'object' ? binding.value.class : ''
+      }
 
-      form.addEventListener("submit", function(event) {
+      form.addEventListener('submit', function (event) {
         // disable submit button
-        let submit = form.querySelector('[type="submit"]');
-        submit.disabled = true;
-        if (button.className !== "") {
-          submit.classList.add(button.className);
+        let submit = form.querySelector('[type="submit"]')
+        submit.disabled = true
+        if (button.className !== '') {
+          submit.classList.add(button.className)
         }
 
-        if (submit.tagName === "INPUT") {
+        if (submit.tagName === 'INPUT') {
           if (binding.value) {
-            submit.value = button.label;
+            submit.value = button.label
           } else {
-            submit.value = submit.value + "...";
+            submit.value = submit.value + '...'
           }
         } else {
           if (binding.value) {
-            submit.innerHTML = button.label;
+            submit.innerHTML = button.label
           } else {
-            submit.innerHTML = submit.value + "...";
+            submit.innerHTML = submit.value + '...'
           }
         }
         // disable all inputs
-        let inputs = form.querySelectorAll("input, select, textarea");
-        inputs.forEach(function(element) {
-          if (element.tagName === "SELECT" || element.type === 'range') {
+        let inputs = form.querySelectorAll('input, select, textarea')
+        inputs.forEach(function (element) {
+          if (element.tagName === 'SELECT' || element.type === 'range') {
             createHiddenInput(element, form)
-            element.disabled = true;
+            element.disabled = true
           } else if (element.type === 'radio' || element.type === 'checkbox') {
             if (element.checked) {
               createHiddenInput(element, form)
             }
             element.disabled = true
           } else {
-            element.readOnly = true;
+            element.readOnly = true
           }
-        });
-      });
-    });
+        })
+      })
+    })
   }
-};
+}
 
 function createHiddenInput (element, form) {
   // create a hidden input
