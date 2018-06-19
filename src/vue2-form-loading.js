@@ -33,7 +33,7 @@ export default {
         // disable all inputs
         let inputs = form.querySelectorAll("input, select, textarea");
         inputs.forEach(function(element) {
-          if (element.tagName === "SELECT") {
+          if (element.tagName === "SELECT" || element.type === 'range') {
             createHiddenInput(element, form)
             element.disabled = true;
           } else if (element.type === 'radio' || element.type === 'checkbox') {
