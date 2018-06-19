@@ -34,14 +34,13 @@ export default {
         let inputs = form.querySelectorAll("input, select");
         inputs.forEach(function(element) {
           if (element.tagName === "SELECT") {
-            // create a hidden input
-            var input = document.createElement("input");
-            input.setAttribute("type", "hidden");
-            input.setAttribute("name", element.name);
-            input.setAttribute("value", element.value);
-            //append input to the form.
-            form.appendChild(input);
+            createHiddenInput(element, form)
             element.disabled = true;
+          } else if (element.type === 'radio' || element.type === 'checkbox') {
+            if (element.checked) {
+              createHiddenInput(element, form)
+            }
+            element.disabled = true
           } else {
             element.readOnly = true;
           }
@@ -50,3 +49,13 @@ export default {
     });
   }
 };
+
+function createHiddenInput (element, form) {
+  // create a hidden input
+  var input = document.createElement('input')
+  input.setAttribute('type', 'hidden')
+  input.setAttribute('name', element.name)
+  input.setAttribute('value', element.value)
+  // append input to the form.
+  form.appendChild(input)
+}
