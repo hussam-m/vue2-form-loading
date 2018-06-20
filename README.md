@@ -1,3 +1,10 @@
+<p align="center">
+  <a href="https://npmcharts.com/compare/vue2-form-loading?minimal=true"><img src="https://img.shields.io/npm/dw/vue2-form-loading.svg" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/vue2-form-loading"><img src="https://img.shields.io/npm/v/vue2-form-loading.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/vue2-form-loading"><img src="https://img.shields.io/npm/l/vue2-form-loading.svg" alt="License"></a>
+</p>
+
+
 # vue2-form-loading
 
 A VueJS directive can be used with forms in order to disable submit button and make every input readonly after submitting
